@@ -12,13 +12,13 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div>
+      <div className="hidden md:block">
         {user ? (
-          <div className="flex justify-center items-center p-4">
+          <div className="flex justify-center items-center p-4 mt-5">
             <img src={assets.credit_star} alt="starLogo" className="w-6" />
             <p className="mr-4 ml-1 text-gray-400">Credits left : 5</p>
 
-            <p>Hi, prasad</p>
+            <p>Hi, there</p>
             <div className="relative group mx-1">
               <img
                 src={assets.profile_icon}
@@ -36,7 +36,7 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <div className="flex justify-center items-center px-4 p-4">
+          <div className="flex justify-center items-center px-4 p-4 mt-5">
             <p className="text-lg mr-1">pricing</p>
             <button
               className="bg-black text-white px-6 py-1 rounded-[30px]  mx-4"
