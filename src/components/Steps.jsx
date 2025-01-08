@@ -1,9 +1,16 @@
 import React from "react";
 import { stepsData } from "../assets/assets";
+import { motion } from "framer-motion";
 
 const Steps = () => {
   return (
-    <div className="mt-20 flex justify-center items-center">
+    <motion.div
+      className="mt-20 flex justify-center items-center"
+      initial={{ opacity: 0.2, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
       <div className="">
         <h1 className="text-3xl sm:text-4xl font-semibold text-center">
           How it works
@@ -24,7 +31,7 @@ const Steps = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

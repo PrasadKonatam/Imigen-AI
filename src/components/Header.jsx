@@ -1,8 +1,10 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <motion.div
       className="flex flex-col justify-center items-center mt-12 "
@@ -28,7 +30,10 @@ const Header = () => {
           Uleash your creativity with AI. Turn your imagination into visual art
           in seconds - just type, and watch the magic happen.
         </p>
-        <button className="text-white bg-black mt-8 px-12 py-2.5 flex sm:text-lg w-auto  items-center gap-2 rounded-full">
+        <button
+          onClick={() => navigate("/result")}
+          className="text-white bg-black mt-8 px-12 py-2.5 flex sm:text-lg w-auto  items-center gap-2 rounded-full"
+        >
           Generate Images
           <img src={assets.star_group} alt="star-group" className="h-6 ml-2" />
         </button>

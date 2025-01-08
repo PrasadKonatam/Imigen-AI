@@ -1,9 +1,16 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { motion } from "framer-motion";
 
 const GenerateBtn = () => {
   return (
-    <div className="text-center flex flex-col justify-center items-center mt-16">
+    <motion.div
+      className="text-center flex flex-col justify-center items-center mt-16"
+      initial={{ opacity: 0.2, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
       <h1 className="text-4xl font-semibold text-neutral-800">
         See the magic. Try now
       </h1>
@@ -11,7 +18,7 @@ const GenerateBtn = () => {
         Generate Images
         <img src={assets.star_group} alt="star-group" className="h-6 ml-2" />
       </button>
-    </div>
+    </motion.div>
   );
 };
 

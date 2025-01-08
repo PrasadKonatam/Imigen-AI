@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
+import { motion } from "framer-motion";
 
 const Result = () => {
   const [input, setInput] = useState("");
@@ -43,7 +44,13 @@ const Result = () => {
   };
 
   return (
-    <form className="flex flex-col min-h-[90vh] justify-center items-center">
+    <motion.form
+      className="flex flex-col min-h-[90vh] justify-center items-center"
+      initial={{ opacity: 0.2, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
       <div>
         <div className="relative">
           <img className="w-80" src={image} alt="Generated content" />
@@ -55,7 +62,7 @@ const Result = () => {
         <p>{loading ? "Loading..." : ""}</p>
       </div>
       {!imageLoaded && (
-        <div className="mt-10 p-0.5 text-sm flex bg-neutral-500 text-white w-full max-w-xl rounded-full">
+        <div className="mt-10 p-0.5 text-sm flex  bg-neutral-500 text-white  w-full max-w-xl rounded-full">
           <input
             onChange={(e) => setInput(e.target.value)}
             className="bg-transparent outline-none max-sm:w-20 flex-1 ml-8 cursor-default"
@@ -65,7 +72,7 @@ const Result = () => {
           />
           <button
             onClick={handleGenerate}
-            className="bg-zinc-900 sm:px-16 py-2 rounded-full"
+            className="bg-zinc-900 px-5 md:px-16 py-2 rounded-full"
             disabled={loading}
           >
             Generate
@@ -77,20 +84,20 @@ const Result = () => {
         <div className="flex mt-10 gap-2">
           <p
             onClick={() => setImageLoaded(false)}
-            className="sm:px-16 py-2 rounded-full border-2 cursor-pointer"
+            className="md:px-16 px-5 py-2 rounded-full border-2 cursor-pointer"
           >
             Generate another
           </p>
           <a
             href={image}
             download="generated-image.jpg"
-            className="bg-zinc-900 sm:px-16 py-2 rounded-full text-white cursor-pointer"
+            className="bg-zinc-900 px-5 md:px-16 py-2 rounded-full text-white cursor-pointer"
           >
             Download
           </a>
         </div>
       )}
-    </form>
+    </motion.form>
   );
 };
 

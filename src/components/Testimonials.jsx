@@ -1,9 +1,16 @@
 import React from "react";
 import { assets, testimonialsData } from "../assets/assets";
+import { motion } from "framer-motion";
 
 const Testimonials = () => {
   return (
-    <div className="mt-24 ">
+    <motion.div
+      className="mt-24 "
+      initial={{ opacity: 0.2, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
       <h1 className="text-3xl font-semibold text-center">
         Customer Testimonials
       </h1>
@@ -28,7 +35,7 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
